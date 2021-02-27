@@ -7,7 +7,9 @@
   display: flex;
   justify-content: center;
 }
-
+.MathJax_Preview {
+  display: none;
+}
 @media(max-width: 700px) {
 .markdown-body {
   -ms-text-size-adjust: 100%;

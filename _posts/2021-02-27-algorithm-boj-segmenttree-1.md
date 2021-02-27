@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '1. 세그먼트 트리(Segment tree) (BOJ 2042 구간 합 구하기)'
+title: '1. 세그먼트 트리(Segment tree)'
 subtitle: 'segment tree, BOJ 2042'
 categories: algorithm
 tags: boj
@@ -58,7 +58,7 @@ for(int i=left ; i<right ; i++){
 
  위의 코드를 통해 ans에는 7+9+0+11+7+6+5+2= 47가 들어가 있을 것이다.
 
- 이 해결책은 필요한 연산 구간만큼의 시간복잡도를 필요로 한다. $O(right - left)$ 즉, 처음부터 끝까지 합을 구할 때는 $O(N)$의 시간복잡도를 가지게 된다.
+ 이 해결책은 필요한 연산 구간만큼의 시간복잡도를 필요로 한다. $ O(right - left) $즉, 처음부터 끝까지 합을 구할 때는 $O(N)$의 시간복잡도를 가지게 된다.
 
  <span style="color:red"> 만약 부분합을 구할 일이 1회라면 합리적이지만, $k$번 구해야 한다면 $O(kN)$의 시간복잡도가 소요된다. </span>
 
@@ -96,13 +96,13 @@ for(int i=left ; i<right ; i++){
 
 ---
 
-<span style="color:red">※ 이 글에서는 편의를 위해 모든 tree node들을 1차원 배열에서 관리할 것이다!  따라서, root node의 index는 1이다.
+<span style="color:red">※ 이 글에서는 편의를 위해 모든 tree node들을 1차원 배열에서 관리할 것이다!  따라서, root node의 index는 1이다. </span>
 
-left child는 현재 index * 2,  
+<span style="color:red">left child는 현재 index * 2, </span> 
 
-right child는 현재 index * 2 +1,
+<span style="color:red">right child는 현재 index * 2 +1,</span>
 
-parent는 현재 index / 2를 통해 계산할 수 있다.</span>
+<span style="color:red">parent는 현재 index / 2를 통해 계산할 수 있다.</span>
 
 ### 1) 생성하기 (Initialization)
 
