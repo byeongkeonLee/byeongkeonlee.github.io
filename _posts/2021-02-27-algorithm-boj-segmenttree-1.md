@@ -4,6 +4,7 @@ title: '1. 세그먼트 트리(Segment tree)'
 subtitle: 'segment tree, BOJ 2042'
 categories: algorithm
 tags: boj
+use_math: true
 comments: true
 ---
 
@@ -139,7 +140,7 @@ class Tree{
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%206.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%206.png)
 
- 이 상황에서 left와 right는 같지 않으므로  Init(cur*2, left, mid) 을 먼저 호출할 것이다.
+ 이 상황에서 left와 right는 같지 않으므로  Init(cur * 2, left, mid) 을 먼저 호출할 것이다.
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%207.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%207.png)
 
@@ -151,7 +152,7 @@ class Tree{
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%209.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%209.png)
 
- 이제 다시 node 8으로 돌아와서  Init(cur*2, left, mid)의 함수가 종료되었으므로  Init(cur*2+1, mid+1, right)을 호출할 것이다.
+ 이제 다시 node 8으로 돌아와서  Init(cur * 2, left, mid)의 함수가 종료되었으므로  Init(cur * 2+1, mid+1, right)을 호출할 것이다.
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%2010.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%2010.png)
 
@@ -162,7 +163,7 @@ class Tree{
  이제 node[8]에서 left child에 대한 init, right child에 대한 init이 모두 끝났으므로 다음 식을 계산할 수 있다.
 
 ```cpp
-return node[cur] = Init(cur*2, left, mid) + Init(cur*2+1, mid+1, right);
+return node[cur] = Init(cur * 2, left, mid) + Init(cur * 2+1, mid+1, right);
 //return node[cur] = 10 + 7 
 ```
 
@@ -367,5 +368,5 @@ int main(){
 
 <span style="color:red">※문제를 풀면서 주의할점</span>
 
-- 수의 범위가 -2^63 ~ 2^63이므로 integer로 해결할 수 없다.
+- 수의 범위가 $-2^{63}$ ~ $2^{63}$이므로 integer로 해결할 수 없다.
 - 문제에서는 index가 1번부터 시작하므로, 기존의 코드와 호환을 위해서는 1을 빼주어 0번부터 시작하도록 작성해야 한다.

@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               K-star's Blog
+title:               Bk-star's Blog
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -22,7 +22,7 @@ description:         >
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              k-star
+  name:              bk-star
   email:             dlqudrjs1996@gmail.com
   picture:           /assets/images/profile/avatar.jpg
 
@@ -54,7 +54,7 @@ google_analytics:    UA-92346434-1
 disqus_shortname:    
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2021. by k-star'
+copyright:           '&copy; 2021. by bk-star'
 
 # Format of the permalinks
 permalink:           pretty
@@ -131,3 +131,10 @@ compress_html:
 
 sass:
   style:             compressed
+
+#Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_seperator: "\n\n"
+incremental: false
