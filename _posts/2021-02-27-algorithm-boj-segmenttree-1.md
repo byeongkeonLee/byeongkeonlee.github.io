@@ -13,6 +13,17 @@ comments: true
 태그: segment tree
 
 ## 목차
+[Solution 1. 선형 탐색](#solution-1-선형-탐색)
+
+[Solution 2. 세그먼트 트리](#solution-2-세그먼트-트리)
+
+[1. 생성하기 (Initialization)](#1-생성하기-initialization)
+
+[2. 검색하기 (Search)](#2-검색하기-search)
+
+[3. 수정하기 (Update)](#3-수정하기-update)
+
+[예제) BOJ 2042](#예제-boj-2042)
 
 ---
 
@@ -48,7 +59,7 @@ for(int i=left ; i<right ; i++){
 
  이 해결책은 필요한 연산 구간만큼의 시간복잡도를 필요로 한다. $O(right - left)$ 즉, 처음부터 끝까지 합을 구할 때는 $O(N)$의 시간복잡도를 가지게 된다.
 
- 만약 부분합을 구할 일이 1회라면 합리적이지만, $k$번 구해야 한다면 $O(kN)$의 시간복잡도가 소요된다. 
+ <span style="color:red"> 만약 부분합을 구할 일이 1회라면 합리적이지만, $k$번 구해야 한다면 $O(kN)$의 시간복잡도가 소요된다. </span>
 
  
 
@@ -66,13 +77,13 @@ for(int i=left ; i<right ; i++){
 
  예를들어, 0~1은 index 0번~1번 원소의 합을, 4~6은 index 4번부터 6번까지 원소의 합을, 7~12는 index 7번부터 12번까지 원소의 합을 가지고 있을 것이다. 
 
- 만약 부분합이 아니라 최대값과 같은 다른 query를 원한다면, a~b에서 a번부터 b번까지의 최대값을 저장해놓으면 된다.
+<span style="color:blue"> 만약 부분합이 아니라 최대값과 같은 다른 query를 원한다면, a~b에서 a번부터 b번까지의 최대값을 저장해놓으면 된다. </span>
 
  기존의 예제를 그대로 사용하여 부분합-세그먼트 트리를 구성하면 다음과 같다.
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%203.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%203.png)
 
- 파란색 node들을 살펴보면, 모든 leaf 노드들의 value는 array value와 동일한 것을 알 수 있다. 
+<span style="color:blue"> 파란색 node들을 살펴보면, 모든 leaf 노드들의 value는 array value와 동일한 것을 알 수 있다. </span>
 
  여기서 우리가 아까 찾고자 했던 부분합은 1~8이고 이는 다음 그림에서 색칠된 원소들을 합하면 된다.
 
@@ -84,13 +95,13 @@ for(int i=left ; i<right ; i++){
 
 ---
 
-※ 이 글에서는 편의를 위해 모든 tree node들을 1차원 배열에서 관리할 것이다!  따라서, root node의 index는 1이다.
+<span style="color:red">※ 이 글에서는 편의를 위해 모든 tree node들을 1차원 배열에서 관리할 것이다!  따라서, root node의 index는 1이다.
 
 left child는 현재 index * 2,  
 
 right child는 현재 index * 2 +1,
 
-parent는 현재 index / 2를 통해 계산할 수 있다.
+parent는 현재 index / 2를 통해 계산할 수 있다.</span>
 
 ### 1) 생성하기 (Initialization)
 
@@ -181,7 +192,7 @@ return node[cur] = Init(cur*2, left, mid) + Init(cur*2+1, mid+1, right);
 
 우리가 구하고자 하는 1~8 구간의 부분합은 위에서 빨간색으로 색칠된 숫자들의 합을 구하면 된다. 
 
-검색은 DFS처럼 재귀적으로 호출하되, 중간과정의 node가 계산에 필요한 node들의 합을 가지고 있다면 중단할 수 있다.
+<span style="color:red">검색은 DFS처럼 재귀적으로 호출하되, 중간과정의 node가 계산에 필요한 node들의 합을 가지고 있다면 중단할 수 있다.</span>
 
 ```cpp
 //cur : current node#
@@ -215,7 +226,7 @@ left~right,  start~end의 의미를 잘 이해하면 쉽게 파악할 수 있다
 
  3번 node를 살펴보자. 7~8의 부분합만 필요한데, 7~12의 정보를 갖고 있다. 따라서 더 쪼개야 한다.
 
-단, right child는 9~12라서 우리가 구하고자 하는 구간이 아니다. 그러므로 right child는 검사할 필요가 없다.
+<span stype="color:blue"> 그런데 right child는 9~12라서 우리가 구하고자 하는 구간이 아니다. 그러므로 right child는 검사할 필요가 없다.</span>
 
 ![/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%2018.png](/assets/images/posts/2021-02-27-algorithm-boj-segmenttree-1/Untitled%2018.png)
 
@@ -282,7 +293,7 @@ void Update(int cur, int index, int val, int left, int right){
 
 ---
 
-### 예제) BOJ 2042
+### 예제 BOJ 2042
 
 > [BOJ2042](https://www.acmicpc.net/problem/2042) : 구간 합 구하기
 
@@ -354,7 +365,7 @@ int main(){
 }
 ```
 
-※문제를 풀면서 주의할점
+<span style="color:red">※문제를 풀면서 주의할점</span>
 
 - 수의 범위가 -2^63 ~ 2^63이므로 integer로 해결할 수 없다.
 - 문제에서는 index가 1번부터 시작하므로, 기존의 코드와 호환을 위해서는 1을 빼주어 0번부터 시작하도록 작성해야 한다.
