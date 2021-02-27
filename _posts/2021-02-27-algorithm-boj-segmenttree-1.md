@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '1. 세그먼트 트리(Segment tree)'
+title: '1. 세그먼트 트리(Segment tree) (BOJ 2042 구간 합 구하기)'
 subtitle: 'segment tree, BOJ 2042'
 categories: algorithm
 tags: boj
