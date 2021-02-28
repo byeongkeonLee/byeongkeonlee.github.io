@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '1. 세그먼트 트리(Segment tree)'
+title: '37단계) 세그먼트 트리(Segment tree)'
 subtitle: 'segment tree, BOJ 2042'
 categories: algorithm
 tags: boj
