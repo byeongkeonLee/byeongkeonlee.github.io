@@ -18,7 +18,7 @@ tagline:             프로그래밍과 금융 (Programming & Finance)
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  개인적인 공부를 정리하는 공간
+  조금씩 정리해보기
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
