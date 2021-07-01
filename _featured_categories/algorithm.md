@@ -1,6 +1,6 @@
 ---
 layout: list
-title: 알고리즘(Algorithm)
+title: 알고리즘
 slug: algorithm
 menu: true
 submenu: true
